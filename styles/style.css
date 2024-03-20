@@ -13,6 +13,9 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -41,16 +44,11 @@ ol {
   list-style: none;
 }
 
-.page {
-  background-color: #1b1919;
-}
-
 .content {
   display: flex;
   align-items: end;
   gap: 30px;
   width: 1140px;
-  height: 534px;
   margin: 133px 30px;
 }
 
@@ -62,8 +60,8 @@ ol {
 
 .content__list {
   position: relative;
-  height: 100%;
-  overflow-y: auto;
+  height: 298px;
+  overflow-y: scroll;
 }
 
 .content__details {
@@ -78,7 +76,6 @@ ol {
   position: relative;
   width: 711px;
   height: 386px;
-
   margin-bottom: 16px;
 }
 
@@ -100,23 +97,23 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  object-fit: cover;
 }
 
 .content__video-card-description-container {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  gap: 6px;
 }
 
 .search-form__fieldset-title {
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
 }
 
 .title {
-  color: #fff;
+  color: white;
   font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 75px;
@@ -129,13 +126,8 @@ ol {
 }
 
 .content__card-link {
-  color: #fff;
+  color: white;
   text-decoration: none;
-}
-
-.content__video-card-description-container {
-  display: flex;
-  flex-direction: column;
 }
 
 .content__video-card-title {
@@ -148,9 +140,7 @@ ol {
 }
 
 .content__video-card-description {
-  margin-top: 6px;
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 90%;
@@ -167,39 +157,25 @@ ol {
 }
 
 fieldset {
-  border: 0;
+  border: none;
 }
 
 .search-form__label {
+  display: flex;
+  align-items: center;
   width: fit-content;
   cursor: pointer;
 }
 
-label span {
-  display: inline-block;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-label span:hover {
-  text-decoration: underline;
-}
-
-input[type="checkbox"] + span {
-  width: 19px;
-  height: 19px;
-  border: 1px solid white;
-}
-
-input[type="checkbox"]:checked + span {
-  border: 1px solid black;
+.search-form__label:has(:focus-visible) {
   outline: 1px solid white;
-  background-color: white;
+  outline-offset: 1px;
 }
 
 .search-form__textfield {
   width: 225px;
   height: 27px;
+  margin-bottom: 1px;
   border-top: 1px solid #fff;
   border-right: 0px;
   border-bottom: 1px solid #fff;
@@ -213,28 +189,38 @@ input[type="checkbox"]:checked + span {
   appearance: none;
 }
 
-.search-form__textfield:active {
-  outline: 1px solid white;
-}
-
 .search-form__fieldset-title {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .search-form__checkbox-list {
+  display: flex;
+  gap: 16px;
   margin-bottom: 5px;
-  margin-left: 7px;
-  font-family: "Fira Sans Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+}
+.search-form__label-text:hover {
+  text-decoration: underline;
 }
 
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid white;
+input[type="checkbox"] + span {
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+  border: 1px solid white;
+  background-color: transparent;
+}
+
+input[type="checkbox"]:checked + span::before {
+  content: "";
+  display: block;
+  width: 17px;
+  height: 17px;
+  border: 1px solid black;
+  background-color: white;
 }
 
 .button {
-  border: 1px solid;
+  border: 1px solid white;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 700;
@@ -252,12 +238,9 @@ input[type="checkbox"]:checked + span {
   background-color: #545050;
 }
 
-.button:focus {
-  outline: none;
-}
-
 .button:focus-visible {
   outline: 1px solid white;
+  outline-offset: 1px;
 }
 
 .search-form__submit-button {
@@ -270,6 +253,10 @@ input[type="checkbox"]:checked + span {
   height: 34px;
 }
 
+.content__card-link {
+  display: block;
+}
+
 .content__card-link_current {
   display: block;
   background-color: #545050;
@@ -277,7 +264,6 @@ input[type="checkbox"]:checked + span {
 
 .content__card-link:hover {
   text-decoration: underline;
-  text-underline-position: under;
 }
 
 .content__card-link:focus-visible {
