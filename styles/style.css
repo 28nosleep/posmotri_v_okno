@@ -131,9 +131,7 @@ ol {
 .content__card-link {
   color: white;
   text-decoration: none;
-  text-overflow: ellipsis; 
-  white-space: nowrap; 
-  overflow: hidden;
+  
   max-width: 394px;
   display: block;
   
@@ -146,6 +144,10 @@ ol {
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+  max-width: 200px;
 }
 
 .content__video-card-description {
